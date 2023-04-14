@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
 <?php
 session_start();
 
@@ -31,15 +35,19 @@ $result = mysqli_query($conn, $query);
 </head>
 <body>
   <h1>Dashboard</h1>
-
+  <ul>
+      <li><a href="main.php">Go to Main Page</a></li>
+      <li><a href="news.php">Go to News Page</a></li>
+      <li>
+        <div class="navigation">
+        <a class="button" href="">
+          <img src="https://static.vecteezy.com/system/resources/previews/000/581/808/original/lock-icon-vector-illustration.jpg"> 
+        <div class="logout">LOGOUT</div>
+        </a>
+      </li>
+  </ul>
+  
   <p>Welcome to the dashboard, user <?php echo $_SESSION['user_id']; ?>.</p>
-
-  <a href="main.php">Go to Main Page</a>
-  <a href="news.php">Go to News Page</a>
-
-  <form method="POST" action="logout.php">
-    <button type="submit">Log Out</button>
-  </form>
 
   <h2>Customers Table</h2>
   <table>
