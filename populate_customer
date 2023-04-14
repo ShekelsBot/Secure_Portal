@@ -1,0 +1,12 @@
+INSERT INTO customers (Name, Gender, Email, Login, Phone, Address, City)
+VALUES 
+  ('John Smith', 'Male', 'john.smith@example.com', 'jsmith', '555-1234', '123 Main St', 'Anytown'),
+  ('Jane Doe', 'Female', 'jane.doe@example.com', 'jdoe', '555-5678', '456 High St', 'Anycity'),
+  ('David Johnson', 'Male', 'david.johnson@example.com', 'djohnson', '555-9876', '789 Low St', 'Anyville'),
+  ('Emily Brown', 'Female', 'emily.brown@example.com', 'ebrown', '555-4321', '246 Main St', 'Anystate'),
+  ('Michael Davis', 'Male', 'michael.davis@example.com', 'mdavis', '555-8765', '135 High St', 'Anytown'),
+  ('Sarah Rodriguez', 'Female', 'sarah.rodriguez@example.com', 'srodriguez', '555-3456', '864 Low St', 'Anycity'),
+  ('Christopher Wilson', 'Male', 'christopher.wilson@example.com', 'cwilson', '555-7890', '357 Main St', 'Anyville'),
+  ('Ashley Martinez', 'Female', 'ashley.martinez@example.com', 'amartinez', '555-2345', '468 High St', 'Anystate'),
+  ('Matthew Anderson', 'Male', 'matthew.anderson@example.com', 'manderson', '555-9012', '159 Low St', 'Anytown'),
+  ('Jessica Thomas', 'Female', 'jessica.thomas@example.com', 'jthomas', '555-6789', '246 Main St', 'Anycity');

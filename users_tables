@@ -1,0 +1,22 @@
+CREATE DATABASE portal;
+
+USE portal;
+
+CREATE TABLE users (
+  Email VARCHAR(255) PRIMARY KEY,
+  password VARCHAR(255),
+  time_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE userinfo (
+  Phone VARCHAR(20) PRIMARY KEY,
+  name VARCHAR(255),
+  email VARCHAR(255)
+);
+
+ALTER TABLE users MODIFY password VARBINARY(255);
+UPDATE users SET password = TO_BASE64(password);
+ALTER TABLE users MODIFY password VARCHAR(255);
+
+ALTER TABLE userinfo ADD CONSTRAINT fk_userinfo_email
+  FOREIGN KEY (email) REFERENCES users(Email);
