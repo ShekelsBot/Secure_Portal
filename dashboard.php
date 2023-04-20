@@ -45,11 +45,18 @@ $result = mysqli_query($conn, $query);
         <div class="logout">LOGOUT</div>
         </a>
       </li>
+
+      
   </ul>
   
-  <p>Welcome to the dashboard, user <?php echo $_SESSION['user_id']; ?>.</p>
+  <p>Welcome to the dashboard, user <?php echo $_SESSION['email']; ?>.</p>
 
   <h2>Customers Table</h2>
+  <ul>
+      <li><a href="add_user.php">Add User</a></li>
+      <li><a href="edit_user.php">Edit User</a></li>
+      <li><a href="remove_user.php">Remove User</a></li>
+  </ul>
   <table>
     <tr>
       <th>ID</th>
