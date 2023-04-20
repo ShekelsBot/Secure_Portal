@@ -54,8 +54,6 @@ $result = mysqli_query($conn, $query);
   <h2>Customers Table</h2>
   <ul>
       <li><a href="add_user.php">Add User</a></li>
-      <li><a href="edit_user.php">Edit User</a></li>
-      <li><a href="remove_user.php">Remove User</a></li>
   </ul>
   <table>
     <tr>
@@ -67,9 +65,11 @@ $result = mysqli_query($conn, $query);
       <th>Phone</th>
       <th>Address</th>
       <th>City</th>
+      <th>Edit/Remove</th>
     </tr>
     <?php while($row = mysqli_fetch_assoc($result)){ ?>
-    <tr>
+      <ul>
+      <tr>
       <td><?php echo $row['ID']; ?></td>
       <td><?php echo $row['Name']; ?></td>
       <td><?php echo $row['Gender']; ?></td>
@@ -78,7 +78,12 @@ $result = mysqli_query($conn, $query);
       <td><?php echo $row['Phone']; ?></td>
       <td><?php echo $row['Address']; ?></td>
       <td><?php echo $row['City']; ?></td>
+      <td>
+        <a href="edit_user.php?id=<?php echo $row['ID']; ?>">Edit</a>
+        <a href="remove_user.php?id=<?php echo $row['ID']; ?>">Remove</a>
+      </td>
     </tr>
+
     <?php } ?>
   </table>
 </body>

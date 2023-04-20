@@ -1,3 +1,7 @@
+<head>
+  <link <link href="https://sleek.durrstudios.dev/style.css" rel="stylesheet" type="text/css" />
+</head>
+
 <?php
 session_start();
 
