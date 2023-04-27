@@ -1,70 +1,38 @@
 <?php
-session_start();
-ob_start();
+/*
+Andrew Bruckbauer
+4/26/2023
+CIS 411
+Secure Portal Final
+*/
+spl_autoload_register(function ($class){
+    include 'classes/'. $class . '.class.php';
+});
+echo (new portal())->loginheader("CIS411 Portal");
 
-// Set database connection variables
-$db_host = 'localhost';
-$db_user = 'admin';
-$db_pass = 'admin';
-$db_name = 'portal';
+echo '
+    <div class="col-lg-4"><p>&nbsp;</p></div> 
+    <div class="col-lg-4"><h1>CIS411 Bruckbauer</h1><br>
+';
 
-// Try to connect to the database
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
-// Check if connection failed
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if(isset($_GET['error'])){
+    echo '<p class"text-danger">'.$_GET['error'].'</p>';
 }
 
-// Check if login form was submitted
-if(isset($_POST['login'])){
+echo '
+    <form action="process.php" method="post" enctype="multipart/form-data">				
+        <input class="form-control" type="email" name="email" placeholder="Email" required autofocus /><br>
 
-    // Get email and password input
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+        <input class="form-control" type="password" name="password" placeholder="Password" /><br>
 
-    // Query the users table to check if the email and password match
-    $query = "SELECT * FROM users WHERE Email='$email' AND Password='$password'";
-    $result = mysqli_query($conn, $query);
+        <button type="submit" name="login" value="Submit" class="btn btn-primary">Login</button>					
+        <button type="reset" name="reset" value="Clear" class="btn btn-warning">Clear</button>	
+    </form><br><br>	
+</div> 
 
-    // Check if any rows were returned
-    if(mysqli_num_rows($result) > 0){
+<div class="col-lg-4"><p>&nbsp;</p></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
+';
 
-        // Login successful, set session variables and redirect to dashboard page
-        $_SESSION['email'] = $email;
-        header("Location: dashboard.php");
-        ob_end_flush();
-        exit();
-
-    } else {
-
-        // Login failed, show error message
-        $error = "Invalid email or password";
-    }
-}
-
+echo (new portal())->loginfooter();
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login Page</title>
-</head>
-<body>
-
-    <h1>Login</h1>
-
-    <?php if(isset($error)){ ?>
-        <p><?php echo $error; ?></p>
-    <?php } ?>
-
-    <form method="POST" action="index.php">
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br>
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
-        <input type="submit" name="login" value="Login">
-    </form>
-
-</body>
-</html>

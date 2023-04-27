@@ -1,5 +1,11 @@
 <link href="https://sleek.durrstudios.dev/style.css" rel="stylesheet" type="text/css" />
 <?php
+/*
+Andrew Bruckbauer
+4/26/2023
+CIS 411
+Secure Portal Final
+*/
 session_start();
 
 if(!isset($_SESSION['email'])) {

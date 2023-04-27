@@ -3,6 +3,12 @@
 </head>
 
 <?php
+/*
+Andrew Bruckbauer
+4/26/2023
+CIS 411
+Secure Portal Final
+*/
 session_start();
 
 if(!isset($_SESSION['email'])) {

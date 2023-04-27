@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="style.css">
+<!--
+Andrew Bruckbauer
+4/26/2023
+CIS 411
+Secure Portal Final
+-->
+<body>
+  <h1>News</h1>
+  <ul>
+      <li><a class="navigation-button" href="Dashboard.php">Dashboard </a></li>
+      <li>
+        <form method="POST" action="logout.php">
+          <button class="navigation-button logout-button" type="submit">Logout</button>
+        </form>
+      </li>
+    </ul>
+    <link rel="stylesheet" href="styles.css">
     <title>News | My Portal</title>
 </head>
 <body>
